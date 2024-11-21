@@ -1,20 +1,22 @@
 const express = require('express');
 const multer = require('multer');
 const fetch = require('node-fetch');
+const fs = require('fs');
+const FormData = require('form-data');
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
-const TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
-const TELEGRAM_CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID';
+const botToken = '7447671480:AAFtEWOh_y3k5UpIeUnV-5fJdV3L-RlqC6M'; // Your Bot Token
+const chatId = '906269717'; // Your Chat ID
 
 app.post('/send-photo', upload.single('photo'), (req, res) => {
     const photoPath = req.file.path;
 
     const formData = new FormData();
-    formData.append('chat_id', TELEGRAM_CHAT_ID);
+    formData.append('chat_id', chatId);
     formData.append('photo', fs.createReadStream(photoPath));
 
-    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+    fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
         method: 'POST',
         body: formData
     })
