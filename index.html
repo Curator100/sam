@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo to Telegram</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input[type="file"] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <button id="captureBtn">Give me sum</button>
-    <input type="file" accept="image/*" capture="camera" id="photoInput" style="display: none;">
+    <div class="container">
+        <h1>Send Photo to Telegram</h1>
+        <button id="captureBtn">Give me sum</button>
+        <input type="file" accept="image/*" capture="camera" id="photoInput">
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
